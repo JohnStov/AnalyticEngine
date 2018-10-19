@@ -2,6 +2,7 @@ module MillTests
 
 open NUnit.Framework
 open FsUnit
+open Analytic.Types
 open Analytic.Mill
 
 [<Test>]
@@ -26,4 +27,12 @@ let ``Second load should be stored in Ingress2 and should perform op`` () =
     mill.ingress1 |> should equal 3
     mill.ingress2 |> should equal 5
     mill.egress |> should equal 8
+    mill.ingressSelect |> should equal Ingress1
+
+[<Test>]
+let ``Setting instruction to subtract should perform subtraction`` () =
+    let mill = init () |> setInstruction Subtract |> load 8 |> load 5
+    mill.ingress1 |> should equal 8
+    mill.ingress2 |> should equal 5
+    mill.egress |> should equal 3
     mill.ingressSelect |> should equal Ingress1

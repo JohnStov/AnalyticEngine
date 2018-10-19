@@ -1,8 +1,6 @@
 module Analytic.Store
 
-type Value = int
-
-type Index = int
+open Analytic.Types
 
 type Store = Value array
 
