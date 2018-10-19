@@ -1,18 +1,17 @@
 module Analytic.Mill
 
-type Stack = int
+open Analytic.Types
 
 type IngressSelect =
     | Ingress1
     | Ingress2
 
 type Mill = {
-    ingress1 : Stack
-    ingress2 : Stack
-    egress : Stack
+    ingress1 : Value
+    ingress2 : Value
+    egress : Value
     ingressSelect : IngressSelect
 }
-
 let init () = {
     ingress1 = 0
     ingress2 = 0

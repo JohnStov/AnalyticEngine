@@ -13,8 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="..\TYpes.fs"/>
     <Compile Include="..\Mill.fs"/>
+    <Compile Include="..\Store.fs"/>
     <Compile Include="MillTests.fs"/>
+    <Compile Include="StoreTests.fs"/>
     <Compile Include="Program.fs"/>
   </ItemGroup>
 
