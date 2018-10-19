@@ -12,6 +12,7 @@ type Mill = {
     egress : Value
     ingressSelect : IngressSelect
 }
+
 let init () = {
     ingress1 = 0
     ingress2 = 0
@@ -27,5 +28,4 @@ let load value mill =
     | Ingress1 -> 
         { mill with ingress1 = value; ingress2 = 0; egress = 0; ingressSelect = Ingress2 }
     | Ingress2 ->
-        let mill' = { mill with ingress2 = value; ingressSelect = Ingress1 }
-        performOp mill'
+        performOp { mill with ingress2 = value; ingressSelect = Ingress1 }

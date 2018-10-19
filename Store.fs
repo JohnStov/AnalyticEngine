@@ -6,12 +6,23 @@ type Index = int
 
 type Store = Value array
 
+type SaveResult = Result<Value, string>
+type RetrieveResult = Result<Store, string>
+
 let init size =
     Array.init size (fun _ -> 0)
 
 let save index value (store : Store) =
-    store.[index] <- value
-    store
+    if index < 0 || index >= (store |> Array.length)
+    then
+        Error "Store index out of range"
+    else
+        store.[index] <- value
+        Ok store
 
 let retrieve index (store : Store) =
-    store.[index]
+    if index < 0 || index >= (store |> Array.length)
+    then
+        Error "Store index out of range"
+    else
+        Ok store.[index]
