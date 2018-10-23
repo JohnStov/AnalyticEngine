@@ -5,9 +5,11 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Railway.fs" />
     <Compile Include="Types.fs" />
     <Compile Include="Store.fs" />
     <Compile Include="Mill.fs" />
+    <Compile Include="Engine.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <Import Project=".paket\Paket.Restore.targets" />

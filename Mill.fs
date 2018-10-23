@@ -22,7 +22,7 @@ let init () = {
     instruction = Add
 }
 
-let performOp mill  =
+let private performOp mill  =
     let op = 
         match mill.instruction with
         | Add -> (+)

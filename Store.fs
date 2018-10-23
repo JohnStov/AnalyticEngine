@@ -4,8 +4,8 @@ open Analytic.Types
 
 type Store = Value array
 
-type SaveResult = Result<Value, string>
-type RetrieveResult = Result<Store, string>
+type ValueResult = Result<Value, string list>
+type StoreResult = Result<Store, string list>
 
 let init size =
     Array.init size (fun _ -> 0)
@@ -13,7 +13,7 @@ let init size =
 let save index value (store : Store) =
     if index < 0 || index >= (store |> Array.length)
     then
-        Error "Store index out of range"
+        Error ["Store index out of range"]
     else
         store.[index] <- value
         Ok store
@@ -21,6 +21,6 @@ let save index value (store : Store) =
 let retrieve index (store : Store) =
     if index < 0 || index >= (store |> Array.length)
     then
-        Error "Store index out of range"
+        Error ["Store index out of range"]
     else
         Ok store.[index]
